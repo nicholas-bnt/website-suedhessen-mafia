@@ -1,0 +1,236 @@
+:root {
+  --bg: #f3f4f6;
+  --bg-alt: #e5e7eb;
+  --bg-section-1: #ffffff;
+  --bg-section-2: #f3f4f6;
+  --accent: #ef4444;
+  --text: #111827;
+  --muted: #6b7280;
+  --border: #e5e7eb;
+  --shadow-soft: 0 18px 40px rgba(15, 23, 42, 0.08);
+  --max-width: 1100px;
+  --transition-fast: 0.18s ease-out;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background: radial-gradient(circle at top, #ffffff 0, #e5e7eb 55%);
+  color: var(--text);
+  line-height: 1.6;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+.page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.container {
+  width: 100%;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+/* HERO / EINLEITUNG */
+
+.hero {
+  padding: 3.2rem 0 2.5rem;
+  background: linear-gradient(180deg, #ffffff 0%, #f9fafb 40%, #f3f4f6 100%);
+}
+
+.hero-inner {
+  max-width: 52rem;
+}
+
+.hero-title {
+  font-size: clamp(2rem, 2.7vw, 2.6rem);
+  line-height: 1.1;
+  letter-spacing: -0.04em;
+  margin-bottom: 1.2rem;
+}
+
+.intro-box {
+  padding: 1.2rem 1.2rem;
+  border-radius: 1.25rem;
+  border: 1px solid var(--border);
+  background: #ffffff;
+  box-shadow: var(--shadow-soft);
+  font-size: 0.95rem;
+}
+
+.intro-box p + p {
+  margin-top: 0.65rem;
+}
+
+/* LANDKREIS-ABSCHNITTE */
+
+.lk-section {
+  width: 100%;
+  padding: 2.8rem 0;
+}
+
+.lk-section:nth-of-type(odd) {
+  background: var(--bg-section-1);
+}
+
+.lk-section:nth-of-type(even) {
+  background: var(--bg-section-2);
+}
+
+.lk-inner {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+  gap: 2.5rem;
+  align-items: center;
+}
+
+.lk-section--reverse .lk-inner {
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr);
+}
+
+.lk-content {
+  max-width: 32rem;
+}
+
+.lk-title {
+  font-size: 1.4rem;
+  letter-spacing: -0.03em;
+  margin-bottom: 0.6rem;
+}
+
+.lk-text {
+  font-size: 0.95rem;
+  margin-bottom: 1.1rem;
+}
+
+.btn-outline {
+  padding: 0.55rem 1.2rem;
+  border-radius: 999px;
+  border: 1px solid rgba(209, 213, 219, 1);
+  font-size: 0.85rem;
+  background: #ffffff;
+  color: var(--text);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  transition: background var(--transition-fast), border-color var(--transition-fast),
+    box-shadow var(--transition-fast), transform var(--transition-fast),
+    color var(--transition-fast);
+}
+
+.btn-outline span {
+  font-size: 1rem;
+  color: var(--accent);
+}
+
+.btn-outline:hover {
+  background: #fef2f2;
+  border-color: rgba(248, 113, 113, 0.9);
+  box-shadow: 0 12px 30px rgba(248, 113, 113, 0.35);
+  transform: translateY(-1px);
+}
+
+.lk-wappen-wrap {
+  justify-self: center;
+}
+
+.lk-wappen-card {
+  width: 150px;
+  max-width: 100%;
+  padding: 1rem 1rem 0.9rem;
+  border-radius: 1.25rem;
+  border: 1px solid rgba(209, 213, 219, 1);
+  background: #ffffff;
+  box-shadow: var(--shadow-soft);
+  text-align: center;
+}
+
+.lk-wappen-img {
+  width: 96px;
+  max-width: 100%;
+  height: auto;
+  margin: 0 auto 0.6rem;
+}
+
+.lk-wappen-caption {
+  font-size: 0.78rem;
+  color: var(--muted);
+}
+
+@media (max-width: 880px) {
+  .lk-inner {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .lk-section--reverse .lk-inner {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .lk-wappen-wrap {
+    order: -1;
+  }
+
+  .lk-section--reverse .lk-wappen-wrap {
+    order: -1;
+  }
+
+  .lk-section {
+    padding: 2.2rem 0;
+  }
+}
+
+/* FOOTER */
+
+footer {
+  padding: 1.2rem 0 1.6rem;
+  font-size: 0.78rem;
+  color: var(--muted);
+  border-top: 1px solid var(--border);
+  background: #f9fafb;
+  margin-top: auto;
+}
+
+.footer-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.7rem;
+}
+
+.footer-links a {
+  text-decoration: underline;
+  text-decoration-style: dotted;
+  text-underline-offset: 0.17rem;
+}
+
+@media (max-width: 640px) {
+  .footer-row {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
